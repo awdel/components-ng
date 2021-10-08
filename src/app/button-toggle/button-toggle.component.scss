@@ -1,5 +1,7 @@
-$border-colour: #ccc;
-$active-colour: rgb(197, 220, 255);
+$border-colour: #dbdbdb;
+$border-colour__hover: #303030;
+$border-radius: 0.3rem;
+$active-colour: #d9edf7;
 
 .button-toggle{
 
@@ -9,7 +11,7 @@ $active-colour: rgb(197, 220, 255);
 
     &__legend {
         margin-bottom: 0.4rem;
-        font-weight: 600;
+        font-weight: 700;
     }
 
     &__input {
@@ -19,47 +21,40 @@ $active-colour: rgb(197, 220, 255);
         opacity: 0;
 
         &__label {
-            display: inline-flex;
+            display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
+            flex-grow: 1;
+            flex-basis: 0;
             min-height: 4rem;
-            min-width: 9.6rem;
-            padding: 0 3.2rem;
-            border-width: 1px 1px 1px 0;
-            border-style: solid;
-            border-color: $border-colour;
-            border-left-color: transparent;
+            border: 1px solid $border-colour;
             cursor: pointer;
 
             &:first-of-type {
-                border-left: 1px solid $border-colour;
-                border-radius: 0.2rem 0 0 0.2rem;
+                border-top-left-radius: $border-radius;
+                border-bottom-left-radius: $border-radius;
             }
 
             &:last-of-type {
-                border-radius: 0 0.2rem 0.2rem 0;
+                border-top-right-radius: $border-radius;
+                border-bottom-right-radius: $border-radius;
+            }
+
+            &:hover {
+                border-color: $border-colour__hover;
             }
 
             @at-root #{$radio-root}:checked + & {
+                font-weight: 700;
                 background-color: $active-colour;
-                border-color: $active-colour $border-colour $active-colour $active-colour;
-
-                &:first-of-type {
-                    border-left: 1px solid $active-colour;
-                }
-
-                &:last-of-type{
-                    border-right: 1px solid $active-colour;
-                }
+                border-color: $active-colour;
             }
 
             @at-root #{$radio-root}:focus-visible + & {
                 outline: black auto 1px;
                 outline-offset: 2px;
-              }
+            }
         }
     }
-
-    
 }
