@@ -21,6 +21,7 @@ fieldset {
         height: 0;
         width: 0;
         opacity: 0;
+        -moz-appearance: none;
 
         &__label {
             display: flex;
